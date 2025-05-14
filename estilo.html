@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechStore PC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animación decorativa */
+    .container-animation {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+    }
+
+    .front {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .front-left,
+    .front-right {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #2300e9;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    .front-left {
+      left: 30px;
+      top: 0;
+    }
+
+    .front-right {
+      right: 30px;
+      top: 0;
+    }
+
+    .love {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 120px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, -10px);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-200 font-sans">
+
+  <!-- Encabezado -->
+  <header class="bg-gray-800 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-500">TechStore PC</h1>
+      <nav class="space-x-6 text-sm">
+        <a href="#" class="hover:text-pink-400 transition">Inicio</a>
+        <a href="#" class="hover:text-pink-400 transition">Productos</a>
+        <a href="#" class="hover:text-pink-400 transition">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-pink-600 to-pink-400 text-white py-20">
+    <div class="max-w-6xl mx-auto text-center px-4">
+      <h2 class="text-4xl font-extrabold mb-4">¡Potencia tu setup gamer!</h2>
+      <p class="text-lg">Laptops, PCs, periféricos y más al mejor precio</p>
+      <button onclick="verProductos()" class="mt-6 px-6 py-3 bg-white text-pink-600 font-semibold rounded-lg shadow hover:bg-gray-100 transition">
+        Ver productos
+      </button>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold mb-8 text-center">Productos destacados</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Producto 1 -->
+      <div class="bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-lg transition">
+        <img src="laptopgmr.png">
+        <h4 class="text-lg font-semibold text-white">Laptop Gamer ASUS</h4>
+        <p class="text-gray-400">Ryzen 7, 16GB RAM, RTX 3060</p>
+        <p class="text-pink-400 font-bold mt-2">$1,199.00</p>
+        <button onclick="agregarCarrito('Laptop Gamer ASUS')" class="mt-4 w-full px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition">
+          Agregar al carrito
+        </button>
+      </div>
+      <!-- Producto 2 -->
+      <div class="bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-lg transition">
+        <img src="pcarmada.png">
+        <h4 class="text-lg font-semibold text-white">PC Armada Intel</h4>
+        <p class="text-gray-400">Core i5, 16GB RAM, SSD 1TB</p>
+        <p class="text-pink-400 font-bold mt-2">$899.00</p>
+        <button onclick="agregarCarrito('PC Armada Intel')" class="mt-4 w-full px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition">
+          Agregar al carrito
+        </button>
+      </div>
+      <!-- Producto 3 -->
+      <div class="bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-lg transition">
+        <img src="monitor.png">
+        <h4 class="text-lg font-semibold text-white">Monitor Curvo Samsung</h4>
+        <p class="text-gray-400">27", 144Hz, Full HD</p>
+        <p class="text-pink-400 font-bold mt-2">$249.00</p>
+        <button onclick="agregarCarrito('Monitor Curvo Samsung')" class="mt-4 w-full px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700 transition">
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animación -->
+  <section class="py-16 bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center px-4">
+      <h3 class="text-2xl font-bold mb-6">¡Novedades con estilo
+        compra we no te vas a desepcionar!</h3>
+      <div class="container-animation">
+        <div class="front">
+          <div class="front-left"></div>
+          <div class="front-right"></div>
+          <img src="miku.png" class="love" alt="Decoración animada">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-700 py-6 mt-12">
+    <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
+      &copy; 2025 TechStore PC. Todos los derechos reservados por David tobar.
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function verProductos() {
+      document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function agregarCarrito(producto) {
+      alert(`Has agregado "${producto}" al carrito.`);
+    }
+  </script>
+</body>
+</html>
